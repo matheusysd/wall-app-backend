@@ -6,9 +6,6 @@ const user = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
     },
-    confirmPassword: {
-      type: DataTypes.STRING,
-    },
     email: {
       type: DataTypes.STRING,
     },
