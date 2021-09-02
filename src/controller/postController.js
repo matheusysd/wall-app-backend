@@ -1,12 +1,14 @@
-const { post } = require("../model");
+const { postModel } = require("../model");
 
 exports.post = async (req, res, next) => {
   const { title, body, author } = req.body;
-  await post.create({ title, body, author });
-  res.send("criou bom");
+  const response = await postModel.create({ title, body, author });
+  res.send({
+    message: `Post created successfull at id:${response.dataValues.id}.`,
+  });
 };
 
 exports.get = async (req, res, next) => {
-  const posts = await post.findAll();
+  const posts = await postModel.findAll();
   res.json(posts);
 };
