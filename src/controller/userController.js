@@ -5,7 +5,7 @@ const { generateToken } = require("../service/jwtAuthentication");
 const BCRYPT_SALT = bcrypt.genSaltSync(10); //add .env later
 
 exports.post = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, lastName } = req.body;
 
   const userExists = await userModel.findOne({ where: { email } });
 
@@ -18,13 +18,13 @@ exports.post = async (req, res) => {
   await userModel.create({
     name,
     email,
+    lastName,
     password: bcrypt.hashSync(password, BCRYPT_SALT),
   });
 
   return res.status(201).json({
     message: "User registered with success!",
   });
-  
 };
 
 exports.get = async (req, res) => {
@@ -52,10 +52,10 @@ exports.login = async (req, res) => {
   const userPayload = {
     userId: user.dataValues.id,
     name: user.name,
+    lastName: user.lastName,
   };
 
   const token = generateToken(userPayload);
 
   return res.status(200).json({ token, ...userPayload });
-
 };
