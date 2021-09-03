@@ -3,6 +3,9 @@ const user = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
     },
+    lastName: {
+      type: DataTypes.STRING,
+    },
     password: {
       type: DataTypes.STRING,
     },
