@@ -12,6 +12,9 @@ const user = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
     },
+    userId: {
+      type: DataTypes.STRING,
+    },
   });
 
   return User;
