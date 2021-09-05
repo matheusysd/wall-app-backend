@@ -2,12 +2,15 @@ const bcrypt = require("bcryptjs");
 const { userModel } = require("../model");
 const { generateToken } = require("../service/jwtAuthentication");
 
-const BCRYPT_SALT = bcrypt.genSaltSync(10); //add .env later
+const PASSWORD_SALT = bcrypt.genSaltSync(10); //add .env later
+const ID_SALT = bcrypt.genSaltSync(2); //add .env later
 
 exports.post = async (req, res) => {
   const { name, email, password, lastName } = req.body;
 
   const userExists = await userModel.findOne({ where: { email } });
+
+  const index = await userModel.findAndCountAll();
 
   if (userExists) {
     return res.status(409).json({
@@ -19,7 +22,8 @@ exports.post = async (req, res) => {
     name,
     email,
     lastName,
-    password: bcrypt.hashSync(password, BCRYPT_SALT),
+    password: bcrypt.hashSync(password, PASSWORD_SALT),
+    userId: bcrypt.hashSync(JSON.stringify(index.count), ID_SALT).substring(30, 35)
   });
 
   return res.status(201).json({
