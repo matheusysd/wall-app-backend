@@ -1,6 +1,6 @@
 const { postModel } = require("../model");
 
-exports.post = async (req, res, next) => {
+exports.post = async (req, res) => {
   const { title, body, author } = req.body;
   const response = await postModel.create({ title, body, author });
   res.send({
@@ -8,7 +8,7 @@ exports.post = async (req, res, next) => {
   });
 };
 
-exports.get = async (req, res, next) => {
+exports.get = async (req, res) => {
   const posts = await postModel.findAll();
   res.json(posts);
 };
