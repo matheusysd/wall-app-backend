@@ -16,6 +16,7 @@ const schemas = {
     title: Joi.string().required(),
     body: Joi.string().required(),
     author: Joi.string().required(),
+    authorId: Joi.string().required(),
   }),
   postParams: Joi.object({
     id: Joi.string().required(),

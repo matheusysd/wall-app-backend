@@ -9,6 +9,9 @@ const post = (sequelize, DataTypes) => {
     author: {
       type: DataTypes.STRING,
     },
+    authorId: {
+      type: DataTypes.STRING,
+    },
   });
 
   return Post;

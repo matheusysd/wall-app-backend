@@ -1,8 +1,8 @@
 const { postModel } = require("../model");
 
 exports.post = async (req, res) => {
-  const { title, body, author } = req.body;
-  const response = await postModel.create({ title, body, author });
+  const { title, body, author, authorId } = req.body;
+  const response = await postModel.create({ title, body, author, authorId });
   res.send({
     message: `Post created successfull at id:${response.dataValues.id}.`,
   });

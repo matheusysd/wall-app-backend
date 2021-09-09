@@ -54,9 +54,9 @@ exports.login = async (req, res) => {
   }
 
   const userPayload = {
-    userId: user.dataValues.id,
     name: user.name,
     lastName: user.lastName,
+    userId: user.userId,
   };
 
   const token = generateToken(userPayload);
