@@ -5,6 +5,7 @@ exports.post = async (req, res) => {
   const response = await postModel.create({ title, body, author, authorId });
   res.send({
     message: `Post created successfull at id:${response.dataValues.id}.`,
+    postId: response.dataValues.id,
   });
 };
 
