@@ -2,9 +2,21 @@
   "name": "wall-app-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "sequelize-cli db:drop && npm run db:create && npm run db:migrate && npm run db:seeds",
+    "test": " npm run prestart && jest",
+    "start": "npm run prestart && node index.js",
+    "dev": "nodemon index.js",
+    "db:create": "sequelize-cli db:create",
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:seeds": "sequelize-cli db:seed:all"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   },
   "author": "Matheus Domingos",
   "license": "ISC",
@@ -18,5 +30,12 @@
     "pg": "^8.7.1",
     "pgtools": "^0.3.2",
     "sequelize": "^6.6.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.1.1",
+    "nodemon": "^2.0.12",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^6.1.6"
   }
 }
