@@ -1,9 +1,8 @@
+require("dotenv").config();
+
 const bcrypt = require("bcryptjs");
 const { userModel } = require("../model");
 const { generateToken } = require("../service/jwtAuthentication");
-
-const PASSWORD_SALT = bcrypt.genSaltSync(10); //add .env later
-const ID_SALT = bcrypt.genSaltSync(2); //add .env later
 
 exports.post = async (req, res) => {
   const { name, email, password, lastName } = req.body;
@@ -22,8 +21,8 @@ exports.post = async (req, res) => {
     name,
     email,
     lastName,
-    password: bcrypt.hashSync(password, PASSWORD_SALT),
-    userId: bcrypt.hashSync(JSON.stringify(index.count), ID_SALT).substring(30, 35)
+    password: bcrypt.hashSync(password, process.env.PASSWORD_SECRET),
+    userId: bcrypt.hashSync(JSON.stringify(index.count), process.env.ID_SECRET).substring(30, 35)
   });
 
   return res.status(201).json({
