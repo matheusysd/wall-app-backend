@@ -1,6 +1,8 @@
-const Sequelize = require("sequelize");
-const config = require("./db");
+require("dotenv").config();
 
-const sequelize = new Sequelize(config);
+const Sequelize = require("sequelize");
+const config = require("./config");
+
+const sequelize = new Sequelize(config[process.env.APP_ENVIRONMENT || "development"]);
 
 module.exports = sequelize;
