@@ -1,1 +1,2 @@
-web: npx sequelize db:migrate:all && npx db:seed:all
+release: node_modules/.bin/sequelize db:migrate
+web: node index.js
