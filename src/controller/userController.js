@@ -3,6 +3,7 @@ require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const { userModel } = require("../model");
 const { generateToken } = require("../service/jwtAuthentication");
+const sendMail = require('../service/sendEmail');
 
 exports.post = async (req, res) => {
   const { name, email, password, lastName } = req.body;
@@ -25,6 +26,8 @@ exports.post = async (req, res) => {
     userId: bcrypt.hashSync(JSON.stringify(index.count), process.env.ID_SECRET).substring(30, 35)
   });
 
+  await sendMail(email, name)
+  
   return res.status(201).json({
     message: "User registered with success!",
   });
