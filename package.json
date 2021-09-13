@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "sequelize-cli db:drop && npm run db:create && npm run db:migrate && npm run db:seeds",
     "test": " npm run prestart && jest",
-    "start": "npm run prestart && node index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "db:create": "sequelize-cli db:create",
     "db:migrate": "sequelize-cli db:migrate",
