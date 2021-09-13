@@ -1,0 +1,1 @@
+web: npx sequelize db:migrate:all && npx db:seed:all
