@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "heroku-postbuild": "npm run db:create && npm run db:migrate ",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "db:create": "sequelize-cli db:create",
