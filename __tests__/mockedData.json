@@ -76,7 +76,7 @@
         "password": "123456"
       }
     ],
-    "incorrectEmail": {
+    "unregisteredEmail": {
       "email": "testa@mail.com",
       "password": "123456789"
     },

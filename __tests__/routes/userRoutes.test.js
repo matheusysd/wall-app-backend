@@ -2,7 +2,7 @@
 const request = require("supertest");
 const app = require("../../src/app");
 const {
-  users: { incorrectEmail, incorretPassword, usersData, loginUser },
+  users: { unregisteredEmail, incorretPassword, usersData, loginUser },
 } = require("../mockedData.json");
 
 describe("Users routes tests", () => {
@@ -25,7 +25,7 @@ describe("Users routes tests", () => {
   });
 
   test("POST /user/login when user does not exist.", async () => {
-    const response = await request(app).post("/user/login").send(incorrectEmail);
+    const response = await request(app).post("/user/login").send(unregisteredEmail);
 
     expect(response.status).toEqual(401);
     expect(response.body.message).toEqual("Unauthorized, wrong email!");
