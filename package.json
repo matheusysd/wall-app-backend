@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "prestart": "sequelize-cli db:drop && npm run db:create && npm run db:migrate && npm run db:seeds",
     "test": "APP_ENVIRONMENT=test npm run prestart && jest",
     "start": "npm run prestart && node index.js",
+=======
+    "test": "jest",
+    "start": "node index.js",
+>>>>>>> 2538a195836736884cdbf5d643bf30dab5a52504
     "dev": "nodemon index.js",
     "db:create": "sequelize-cli db:create",
     "db:migrate": "sequelize-cli db:migrate",
