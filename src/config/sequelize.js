@@ -1,8 +1,6 @@
-require("dotenv").config();
-
 const Sequelize = require("sequelize");
 const config = require("./config");
 
-const sequelize = new Sequelize(config[process.env.APP_ENVIRONMENT || "development"]);
+const sequelize = new Sequelize(config);
 
 module.exports = sequelize;
