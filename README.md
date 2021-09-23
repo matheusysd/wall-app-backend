@@ -25,7 +25,8 @@ To run the api propoerly you need to set the following properties in a .env file
 ## Tests
 
 To run test:
-
+      
+      change APP_ENVIRONMENT variable to test (APP_ENVIRONMENT=test)
       npm start
       npm test
 
