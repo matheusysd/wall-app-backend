@@ -8,6 +8,20 @@ To run this project make sure you have Node installed and run following commands
 <p>
 This is a REST API created with NodeJS and ExpressJS to give life to The Wall App.
 
+## Environment Variables
+
+To run the api propoerly you need to set the following properties in a .env file at project root directory:
+
+    DB_USERNAME=[Your database name]
+    DB_PASSWORD=[Your database password]
+    APP_ENVIRONMENT=[The environment you wanna use: development || test || production]
+    PORT=[The port at localhost you wanna use]
+    PASSWORD_SECRET=[Secret used to encrypt and decrypt user passoword]
+    ID_SECRET=[Secret used to encrypt and decrypt user id]
+    EMAIL_NODEMAILER=[Email used by nodemailer]
+    PASSWORD_NODEMAILER=[Email password used by nodemailer]
+    HOST=[Host used by postgres]
+
 ## Tests
 
 To run test:
