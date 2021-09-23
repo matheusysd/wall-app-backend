@@ -18,8 +18,8 @@ To run the api propoerly you need to set the following properties in a .env file
     PORT=[The port at localhost you wanna use]
     PASSWORD_SECRET=[Secret used to encrypt and decrypt user passoword]
     ID_SECRET=[Secret used to encrypt and decrypt user id]
-    EMAIL_NODEMAILER=[Email used by nodemailer]
-    PASSWORD_NODEMAILER=[Email password used by nodemailer]
+    EMAIL_NODEMAILER=[Email used by nodemailer] I will provide this at .env.example
+    PASSWORD_NODEMAILER=[Email password used by nodemailer] I will provide this at .env.example
     HOST=[Host used by postgres]
 
 ## Tests
