@@ -41,3 +41,4 @@ PostgreSQL with [sequelize](https://sequelize.org/)
 - [ ] Deploy
 - [ ] More filters
 - [ ] Admin login
+- [ ] Better tests
